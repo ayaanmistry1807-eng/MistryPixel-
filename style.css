@@ -407,3 +407,9 @@ h2 {
     padding-right: 20px;
     box-sizing: border-box;
 }
+/* Solid navbar on scroll */
+.header.scrolled {
+    background: rgba(15, 23, 42, 0.98);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
