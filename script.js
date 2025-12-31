@@ -1,80 +1,47 @@
-// Particles - Reduced for mobile performance
+// Particles - Lightweight for mobile
 particlesJS("particles-js", {
     particles: {
-        number: { value: 50, density: { enable: true, value_area: 800 } }, // Less particles
+        number: { value: 60, density: { enable: true, value_area: 800 } },
         color: { value: ["#facc15", "#1e40af"] },
         shape: { type: "circle" },
         opacity: { value: 0.5, random: true },
         size: { value: 3, random: true },
-        line_linked: {
-            enable: true,
-            distance: 150,
-            color: "#facc15",
-            opacity: 0.3,
-            width: 1
-        },
-        move: {
-            enable: true,
-            speed: 1.5, // Slower = less battery drain
-            direction: "none",
-            random: false,
-            straight: false,
-            out_mode: "out"
-        }
+        line_linked: { enable: true, distance: 150, color: "#facc15", opacity: 0.3, width: 1 },
+        move: { enable: true, speed: 1.5, direction: "none", out_mode: "out" }
     },
-    interactivity: {
-        detect_on: "canvas",
-        events: {
-            onhover: { enable: true, mode: "repulse" },
-            ontouch: { enable: true, mode: "repulse" }, // Touch support
-            resize: true
-        }
-    },
+    interactivity: { detect_on: "canvas", events: { onhover: { enable: true, mode: "repulse" }, ontouch: { enable: true, mode: "repulse" } } },
     retina_detect: true
 });
 
-// AOS - Enable on mobile
-AOS.init({
-    duration: 1200,
-    once: false,
-    mirror: true,
-    disable: false // Force enable on mobile
-});
+// AOS
+AOS.init({ duration: 1200, once: false, mirror: true });
 
-// Hamburger Menu Toggle - Fixed for mobile touch
+// Hamburger
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('nav-menu');
 
-function toggleMenu(e) {
-    if (e) e.preventDefault(); // Prevent scroll jump on touch
+hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
     navMenu.classList.toggle('active');
-}
+});
 
-hamburger.addEventListener('click', toggleMenu);
-hamburger.addEventListener('touchstart', toggleMenu); // Extra for some phones
+// Close menu on link click
+document.querySelectorAll('.nav a').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+    });
+});
 
-// Smooth Scroll + Close menu on link click
+// Navbar scroll effect
+window.addEventListener('scroll', () => {
+    document.querySelector('.header').classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
-        // Close menu on mobile after click
-        if (navMenu.classList.contains('active')) {
-            toggleMenu();
-        }
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
     });
-});
-// Navbar solid on scroll
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        document.querySelector('.header').classList.add('scrolled');
-    } else {
-        document.querySelector('.header').classList.remove('scrolled');
-    }
 });
