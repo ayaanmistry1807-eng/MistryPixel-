@@ -139,18 +139,17 @@ body {
     transform: rotate(-45deg) translate(8px, -8px);
 }
 
-/* Hero - Full Screen Fix */
+/* Hero - Full Screen */
 .hero {
-    height: 100vh; /* Full screen */
+    height: 100vh;
     min-height: 100vh;
-    padding-top: 90px; /* Only navbar height */
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     position: relative;
+    padding-top: 0; /* Removed padding-top */
 }
-
 .hero h1 {
     font-size: 6rem;
     font-weight: 900;
@@ -398,3 +397,4 @@ h2 {
         padding: 45px 30px;
     }
 }
+
