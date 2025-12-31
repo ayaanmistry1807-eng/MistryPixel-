@@ -1,4 +1,3 @@
-/* Reset & Base */
 * {
     margin: 0;
     padding: 0;
@@ -13,7 +12,7 @@ html, body {
 body {
     font-family: 'Poppins', sans-serif;
     background: #0f172a;
-    color: #e2e8f0;
+    color: #f1f5f9;
     overflow-x: hidden;
     line-height: 1.8;
 }
@@ -32,7 +31,6 @@ body {
     --gold: #facc15;
     --light-gold: #fde047;
     --neon-gold: #fef08a;
-    --text: #f1f5f9;
 }
 
 /* Header */
@@ -48,7 +46,12 @@ body {
     backdrop-filter: blur(12px);
     z-index: 1000;
     border-bottom: 1px solid rgba(250, 204, 21, 0.2);
-    min-height: 90px; /* Consistent height */
+    min-height: 90px;
+    transition: background 0.3s;
+}
+
+.header.scrolled {
+    background: rgba(15, 23, 42, 0.98);
 }
 
 /* Logo */
@@ -64,7 +67,7 @@ body {
 
 .logo-container:hover {
     box-shadow: 0 0 50px rgba(250, 204, 21, 1);
-    transform: scale(1.1) rotate(5deg);
+    transform: scale(1.1);
 }
 
 .logo {
@@ -73,18 +76,18 @@ body {
     object-fit: cover;
 }
 
-/* Desktop Nav */
+/* Nav */
 .nav-list {
     display: flex;
-    list-style: none;
     gap: 35px;
+    list-style: none;
 }
 
 .nav a {
     color: var(--gold);
     text-decoration: none;
-    font-size: 1.1rem;
     font-weight: 700;
+    font-size: 1.1rem;
     position: relative;
     transition: 0.4s;
 }
@@ -100,11 +103,6 @@ body {
     transition: 0.4s;
 }
 
-.nav a:hover {
-    color: var(--light-gold);
-    text-shadow: 0 0 20px var(--neon-gold);
-}
-
 .nav a:hover::after {
     width: 100%;
 }
@@ -112,34 +110,26 @@ body {
 /* Hamburger */
 .hamburger {
     display: none;
-    flex-direction: column;
     cursor: pointer;
-    gap: 7px;
-    padding: 15px; /* Super easy to tap */
+    padding: 15px;
     z-index: 1001;
 }
 
 .hamburger span {
+    display: block;
     width: 35px;
     height: 4px;
     background: var(--gold);
+    margin: 7px 0;
     border-radius: 4px;
     transition: 0.4s;
 }
 
-.hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(10px, 10px);
-}
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(10px, 10px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(8px, -8px); }
 
-.hamburger.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(8px, -8px);
-}
-
-/* Hero - Full Screen */
+/* Hero */
 .hero {
     height: 100vh;
     min-height: 100vh;
@@ -148,47 +138,50 @@ body {
     justify-content: center;
     text-align: center;
     position: relative;
-    padding-top: 0; /* Removed padding-top */
 }
+
+.hero-content {
+    margin-top: 90px; /* Clears navbar perfectly */
+    max-width: 1200px;
+    padding: 0 20px;
+    z-index: 2;
+}
+
 .hero h1 {
     font-size: 6rem;
     font-weight: 900;
     color: var(--gold);
     text-shadow: 0 0 50px rgba(250, 204, 21, 0.6);
-    margin-bottom: 10px;
     letter-spacing: 4px;
+    margin-bottom: 10px;
 }
 
 .hero h2 {
     font-size: 3rem;
     color: var(--light-gold);
     margin-bottom: 35px;
-    font-weight: 600;
 }
 
 .hero p {
     font-size: 1.6rem;
-    margin-bottom: 60px;
     max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto 60px;
 }
 
 .cta-btn {
     padding: 20px 50px;
     background: linear-gradient(45deg, var(--deep-blue), var(--gold));
-    color: #fff;
+    color: white;
     font-weight: 700;
     font-size: 1.4rem;
     border-radius: 50px;
+    text-decoration: none;
     box-shadow: 0 0 35px rgba(250, 204, 21, 0.5);
     transition: 0.5s;
-    text-decoration: none;
-    display: inline-block;
 }
 
 .cta-btn:hover {
-    transform: translateY(-8px) scale(1.08);
+    transform: translateY(-8px);
     box-shadow: 0 0 70px rgba(250, 204, 21, 0.9);
 }
 
@@ -200,10 +193,8 @@ body {
 
 /* Sections */
 .section {
-    padding: 160px 20px 140px; /* More breathing room */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 160px 20px;
+    text-align: center;
 }
 
 h2 {
@@ -214,24 +205,22 @@ h2 {
     text-shadow: 0 0 30px rgba(250, 204, 21, 0.4);
 }
 
-/* Services - Beautiful 2-column */
+/* Services */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 80px; /* More space */
+    gap: 80px;
     max-width: 1200px;
     margin: 0 auto;
-    width: 100%;
 }
 
 .service-card {
     background: rgba(30, 58, 138, 0.3);
     padding: 60px 45px;
     border-radius: 35px;
-    backdrop-filter: blur(15px);
     border: 1px solid rgba(250, 204, 21, 0.4);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
-    transition: all 0.6s ease;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+    transition: 0.6s;
 }
 
 .service-card:hover {
@@ -247,11 +236,11 @@ h2 {
 }
 
 .service-card ul {
-    font-size: 1.4rem;
     text-align: left;
+    font-size: 1.4rem;
 }
 
-/* Pricing & Contact */
+/* Contact & Pricing */
 #pricing p, .contact-info p {
     font-size: 1.6rem;
     max-width: 900px;
@@ -270,23 +259,19 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 50px rgba(37, 211, 102, 0.9);
+    box-shadow: 0 0 50px rgba(37,211,102,0.9);
     z-index: 9999;
     animation: pulse 2s infinite;
 }
 
-.whatsapp-float:hover {
-    transform: scale(1.2);
-}
+.whatsapp-float:hover { transform: scale(1.2); }
 
-.whatsapp-float img {
-    width: 55px;
-}
+.whatsapp-float img { width: 55px; }
 
 @keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.9); }
-    70% { box-shadow: 0 0 0 25px rgba(37, 211, 102, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.9); }
+    70% { box-shadow: 0 0 0 25px rgba(37,211,102,0); }
+    100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
 }
 
 /* Particles */
@@ -299,23 +284,17 @@ h2 {
     z-index: -1;
 }
 
-/* Mobile Fixes */
+/* Responsive */
 @media (max-width: 992px) {
     .services-grid {
         grid-template-columns: 1fr;
         gap: 70px;
         padding: 0 40px;
     }
-    
-    .service-card {
-        padding: 50px 35px;
-    }
 }
 
 @media (max-width: 768px) {
-    .hamburger {
-        display: flex;
-    }
+    .hamburger { display: flex; }
 
     .nav {
         position: fixed;
@@ -327,50 +306,25 @@ h2 {
         backdrop-filter: blur(15px);
         transition: left 0.5s ease;
         padding-top: 80px;
-        overflow-y: auto; /* Scroll if needed */
         z-index: 999;
     }
 
-    .nav.active {
-        left: 0;
-    }
+    .nav.active { left: 0; }
 
     .nav-list {
         flex-direction: column;
         gap: 50px;
-        align-items: center;
     }
 
-    .nav a {
-        font-size: 2rem; /* Bigger for touch */
-    }
+    .nav a { font-size: 2rem; }
 
-    .hero {
-        padding-top: 90px;
-        height: 100vh;
-    }
+    .hero-content { margin-top: 70px; }
 
-    .hero h1 {
-        font-size: 4rem;
-    }
+    .hero h1 { font-size: 4rem; }
+    .hero h2 { font-size: 2.5rem; }
+    .hero p { font-size: 1.4rem; }
 
-    .hero h2 {
-        font-size: 2.5rem;
-    }
-
-    .hero p {
-        font-size: 1.4rem;
-        padding: 0 20px;
-    }
-
-    h2 {
-        font-size: 3.5rem;
-        margin-bottom: 80px;
-    }
-
-    .section {
-        padding: 140px 20px;
-    }
+    h2 { font-size: 3.5rem; }
 
     .whatsapp-float {
         width: 80px;
@@ -378,38 +332,9 @@ h2 {
         bottom: 30px;
         right: 30px;
     }
-
-    .whatsapp-float img {
-        width: 50px;
-    }
+    .whatsapp-float img { width: 50px; }
 }
 
 @media (max-width: 480px) {
-    .hero h1 {
-        font-size: 3.5rem;
-    }
-    
-    .services-grid {
-        padding: 0 20px;
-    }
-    
-    .service-card {
-        padding: 45px 30px;
-    }
-}
-
-.hero-content {
-    padding-top: 120px; /* Pushes text below navbar */
-    z-index: 2;
-    max-width: 1100px;
-    width: 100%;
-    padding-left: 20px;
-    padding-right: 20px;
-    box-sizing: border-box;
-}
-/* Solid navbar on scroll */
-.header.scrolled {
-    background: rgba(15, 23, 42, 0.98);
-    backdrop-filter: blur(15px);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    .hero h1 { font-size: 3.5rem; }
 }
