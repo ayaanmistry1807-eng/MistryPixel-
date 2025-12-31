@@ -1,5 +1,3 @@
-/* Complete Premium style.css - 500+ lines with full colors, animations, glows, particles support */
-
 * {
     margin: 0;
     padding: 0;
@@ -9,13 +7,13 @@
 html, body {
     height: 100%;
     scroll-behavior: smooth;
-    overflow-x: hidden;
 }
 
 body {
     font-family: 'Poppins', sans-serif;
     background: #0f172a;
     color: #f1f5f9;
+    overflow-x: hidden;
     line-height: 1.8;
 }
 
@@ -26,23 +24,21 @@ body {
     text-align: center;
 }
 
-/* Premium Colors - Navy + Rich Gold + Deep Blue */
+/* Colors & Glows */
 :root {
     --navy: #0f172a;
     --deep-blue: #1e40af;
     --gold: #facc15;
     --light-gold: #fde047;
     --neon-gold: #fef08a;
-    --neon-blue: #60a5fa;
     --text-light: #e2e8f0;
     --card-bg: rgba(30, 58, 138, 0.25);
 }
 
-/* Header - Fixed with Glow & Scroll Effect */
+/* Header */
 .header {
     position: fixed;
     top: 0;
-    left: 0;
     width: 100%;
     padding: 20px 50px;
     display: flex;
@@ -53,16 +49,15 @@ body {
     z-index: 1000;
     border-bottom: 1px solid rgba(250, 204, 21, 0.3);
     box-shadow: 0 0 20px rgba(250, 204, 21, 0.2);
-    transition: all 0.4s ease;
+    transition: all 0.4s;
 }
 
 .header.scrolled {
     background: rgba(15, 23, 42, 0.98);
     box-shadow: 0 5px 30px rgba(250, 204, 21, 0.4);
-    padding: 15px 50px;
 }
 
-/* Circular Logo with Glow Hover */
+/* Logo */
 .logo-container {
     width: 90px;
     height: 90px;
@@ -70,12 +65,12 @@ body {
     overflow: hidden;
     border: 4px solid var(--gold);
     box-shadow: 0 0 30px rgba(250, 204, 21, 0.6);
-    transition: all 0.6s ease;
+    transition: 0.6s;
 }
 
 .logo-container:hover {
     box-shadow: 0 0 60px rgba(250, 204, 21, 1);
-    transform: scale(1.1) rotate(10deg);
+    transform: scale(1.1);
 }
 
 .logo {
@@ -84,11 +79,11 @@ body {
     object-fit: cover;
 }
 
-/* Desktop Nav - Gold with Hover Glow */
+/* Nav Links */
 .nav-list {
     display: flex;
-    list-style: none;
     gap: 40px;
+    list-style: none;
 }
 
 .nav a {
@@ -97,7 +92,7 @@ body {
     font-size: 1.2rem;
     font-weight: 700;
     position: relative;
-    transition: all 0.4s;
+    transition: 0.4s;
 }
 
 .nav a::after {
@@ -107,8 +102,12 @@ body {
     height: 3px;
     bottom: -10px;
     left: 0;
-    background: linear-gradient(90deg, var(--gold), var(--neon-gold));
-    transition: width 0.4s;
+    background: var(--gold);
+    transition: 0.4s;
+}
+
+.nav a:hover::after {
+    width: 100%;
 }
 
 .nav a:hover {
@@ -116,11 +115,7 @@ body {
     text-shadow: 0 0 20px var(--neon-gold);
 }
 
-.nav a:hover::after {
-    width: 100%;
-}
-
-/* Hamburger - Animated & Glow */
+/* Hamburger - Beautiful Gold Lines */
 .hamburger {
     display: none;
     cursor: pointer;
@@ -135,7 +130,7 @@ body {
     background: var(--gold);
     margin: 8px 0;
     border-radius: 4px;
-    transition: all 0.4s;
+    transition: 0.4s;
     box-shadow: 0 0 10px var(--neon-gold);
 }
 
@@ -151,7 +146,7 @@ body {
     transform: rotate(-45deg) translate(10px, -10px);
 }
 
-/* Hero - Full Screen with Animations */
+/* Hero */
 .hero {
     height: 100vh;
     min-height: 100vh;
@@ -167,12 +162,6 @@ body {
     max-width: 1200px;
     padding: 0 20px;
     z-index: 2;
-    animation: fadeInUp 1.5s ease;
-}
-
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(50px); }
-    to { opacity: 1; transform: translateY(0); }
 }
 
 .hero h1 {
@@ -181,8 +170,7 @@ body {
     color: var(--gold);
     text-shadow: 0 0 60px rgba(250, 204, 21, 0.7);
     letter-spacing: 5px;
-    margin-bottom: 15px;
-    animation: glowPulse 3s infinite alternate;
+    animation: glowPulse 4s infinite alternate;
 }
 
 @keyframes glowPulse {
@@ -193,7 +181,6 @@ body {
 .hero h2 {
     font-size: 3.2rem;
     color: var(--light-gold);
-    margin-bottom: 40px;
     text-shadow: 0 0 30px rgba(253, 224, 71, 0.5);
 }
 
@@ -201,10 +188,9 @@ body {
     font-size: 1.7rem;
     max-width: 900px;
     margin: 0 auto 70px;
-    color: var(--text-light);
 }
 
-/* CTA Button - Gradient & Glow Hover */
+/* CTA */
 .cta-btn {
     padding: 22px 55px;
     background: linear-gradient(45deg, var(--deep-blue), var(--gold));
@@ -212,16 +198,13 @@ body {
     font-weight: 700;
     font-size: 1.5rem;
     border-radius: 60px;
-    text-decoration: none;
     box-shadow: 0 0 40px rgba(250, 204, 21, 0.6);
-    transition: all 0.5s ease;
-    display: inline-block;
+    transition: 0.5s;
 }
 
 .cta-btn:hover {
-    transform: translateY(-10px) scale(1.05);
+    transform: translateY(-10px);
     box-shadow: 0 0 80px rgba(250, 204, 21, 1);
-    background: linear-gradient(45deg, var(--gold), var(--deep-blue));
 }
 
 .cta-btn.secondary {
@@ -230,10 +213,9 @@ body {
     color: var(--gold);
 }
 
-/* Sections - Premium Spacing & Fade */
+/* Sections */
 .section {
     padding: 180px 20px;
-    text-align: center;
 }
 
 h2 {
@@ -242,10 +224,9 @@ h2 {
     color: var(--gold);
     margin-bottom: 120px;
     text-shadow: 0 0 40px rgba(250, 204, 21, 0.5);
-    animation: fadeIn 2s ease;
 }
 
-/* Services Grid - 2 Columns with Glow Cards */
+/* Services Cards - Full Glow & Shine */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -263,18 +244,21 @@ h2 {
     backdrop-filter: blur(15px);
     border: 2px solid rgba(250, 204, 21, 0.4);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
-    transition: all 0.7s ease;
+    transition: 0.7s;
     overflow: hidden;
 }
 
 .service-card::before {
     content: '';
     position: absolute;
-    top: -2px; left: -2px; right: -2px; bottom: -2px;
-    background: linear-gradient(45deg, transparent, var(--gold), var(--neon-blue), transparent);
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, transparent, var(--gold), transparent);
     border-radius: 40px;
     opacity: 0;
-    transition: opacity 0.7s;
+    transition: 0.7s;
     z-index: -1;
 }
 
@@ -284,13 +268,12 @@ h2 {
 }
 
 @keyframes borderShine {
-    0% { transform: translateX(-100%) translateY(-100%); }
-    100% { transform: translateX(100%) translateY(100%); }
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
 }
 
 .service-card:hover {
     transform: translateY(-40px);
-    border-color: var(--gold);
     box-shadow: 0 40px 100px rgba(250, 204, 21, 0.6);
 }
 
@@ -304,31 +287,17 @@ h2 {
 .service-card ul {
     text-align: left;
     font-size: 1.5rem;
-    color: var(--text-light);
 }
 
-.service-card li {
-    margin: 20px 0;
-    padding-left: 10px;
-    transition: color 0.3s;
-}
-
-.service-card li:hover {
-    color: var(--light-gold);
-}
-
-/* Pricing & Contact - Elegant */
-#pricing p, .contact-info p {
+/* Contact */
+.contact-info p {
     font-size: 1.7rem;
-    max-width: 900px;
-    margin: 0 auto 100px;
-    color: var(--text-light);
+    margin: 50px 0;
 }
 
 .contact-info a {
     color: var(--gold);
-    text-decoration: none;
-    transition: all 0.3s;
+    transition: 0.3s;
 }
 
 .contact-info a:hover {
@@ -336,7 +305,7 @@ h2 {
     text-shadow: 0 0 30px var(--neon-gold);
 }
 
-/* WhatsApp - Pulsing Glow */
+/* WhatsApp */
 .whatsapp-float {
     position: fixed;
     bottom: 50px;
@@ -350,25 +319,24 @@ h2 {
     justify-content: center;
     box-shadow: 0 0 60px rgba(37, 211, 102, 1);
     z-index: 9999;
-    animation: whatsappPulse 2s infinite;
-    transition: all 0.4s;
+    animation: pulse 2s infinite;
 }
 
 .whatsapp-float:hover {
-    transform: scale(1.3);
+    transform: scale(1.2);
 }
 
 .whatsapp-float img {
     width: 60px;
 }
 
-@keyframes whatsappPulse {
+@keyframes pulse {
     0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.9); }
     70% { box-shadow: 0 0 0 30px rgba(37, 211, 102, 0); }
     100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
 }
 
-/* Particles Background */
+/* Particles */
 #particles-js {
     position: fixed;
     width: 100%;
@@ -378,30 +346,17 @@ h2 {
     z-index: -1;
 }
 
-/* AOS Fade Animations Support */
-[data-aos] {
-    opacity: 0;
-    transition-property: opacity, transform;
-}
-
-/* Responsive - Perfect on Phone */
+/* Mobile - Perfect Hamburger & Spacing */
 @media (max-width: 992px) {
     .services-grid {
         grid-template-columns: 1fr;
         gap: 80px;
-        padding: 0 40px;
-    }
-
-    .service-card {
-        padding: 70px 40px;
     }
 }
 
 @media (max-width: 768px) {
-    .hamburger { display: flex; }
-
-    .header {
-        padding: 20px;
+    .hamburger {
+        display: flex;
     }
 
     .nav {
@@ -417,24 +372,34 @@ h2 {
         z-index: 999;
     }
 
-    .nav.active { left: 0; }
+    .nav.active {
+        left: 0;
+    }
 
     .nav-list {
         flex-direction: column;
         gap: 60px;
     }
 
-    .nav a { font-size: 2.2rem; }
-
-    .hero-content {
-        margin-top: 180px !important;
+    .nav a {
+        font-size: 2.2rem;
     }
 
-    .hero h1 { font-size: 4.8rem; }
-    .hero h2 { font-size: 2.8rem; }
-    .hero p { font-size: 1.6rem; }
+    .hero-content {
+        margin-top: 180px;
+    }
 
-    h2 { font-size: 4rem; }
+    .hero h1 {
+        font-size: 4.8rem;
+    }
+
+    .hero h2 {
+        font-size: 2.8rem;
+    }
+
+    h2 {
+        font-size: 4rem;
+    }
 
     .whatsapp-float {
         width: 90px;
@@ -442,12 +407,14 @@ h2 {
         bottom: 40px;
         right: 40px;
     }
-
-    .whatsapp-float img { width: 55px; }
 }
 
 @media (max-width: 480px) {
-    .hero-content { margin-top: 200px !important; }
-    .hero h1 { font-size: 4rem; }
-    .hero h2 { font-size: 2.5rem; }
+    .hero-content {
+        margin-top: 200px;
+    }
+
+    .hero h1 {
+        font-size: 4rem;
+    }
 }
