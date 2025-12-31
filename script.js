@@ -1,22 +1,25 @@
-// Particles
 particlesJS("particles-js", {
     particles: {
-        number: { value: 60 },
+        number: { value: 80 },
         color: { value: ["#facc15", "#1e40af"] },
         shape: { type: "circle" },
-        opacity: { value: 0.5 },
-        size: { value: 3 },
-        line_linked: { enable: true, distance: 150, color: "#facc15", opacity: 0.3, width: 1 },
-        move: { enable: true, speed: 1.5 }
+        opacity: { value: 0.5, random: true },
+        size: { value: 3, random: true },
+        line_linked: { enable: true, distance: 150, color: "#facc15", opacity: 0.4, width: 1 },
+        move: { enable: true, speed: 2 }
     },
-    interactivity: { events: { onhover: { enable: true, mode: "repulse" }, ontouch: { enable: true, mode: "repulse" } } },
+    interactivity: {
+        events: { onhover: { enable: true, mode: "repulse" }, ontouch: { enable: true, mode: "repulse" } }
+    },
     retina_detect: true
 });
 
-// AOS
-AOS.init({ duration: 1200, once: false, mirror: true });
+AOS.init({
+    duration: 1200,
+    once: false,
+    mirror: true
+});
 
-// Hamburger & Scroll
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('nav-menu');
 
@@ -42,3 +45,4 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
     });
 });
+
